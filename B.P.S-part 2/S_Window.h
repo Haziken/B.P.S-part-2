@@ -11,6 +11,7 @@ public:
 	int init(const char* title, int x, int y, int w, int h, Uint32 window_flag, Uint32 renderer_flag);
 	SDL_Window* getWindow();
 	SDL_Renderer* getRenderer();
+	void update(SDL_Color background = {255,255,255,255});
 	~S_Window();
 private:
 	SDL_Window* win = nullptr;

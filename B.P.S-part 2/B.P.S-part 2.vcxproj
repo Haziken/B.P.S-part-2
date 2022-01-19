@@ -139,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicComponent.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="S_Window.cpp" />
+    <ClCompile Include="WorkSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicComponent.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="S_Window.h" />
+    <ClInclude Include="WorkSpace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

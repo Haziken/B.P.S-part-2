@@ -25,6 +25,13 @@ SDL_Renderer* S_Window::getRenderer()
     return ren;
 }
 
+void S_Window::update(SDL_Color background)
+{
+    SDL_RenderPresent(ren);
+    SDL_SetRenderDrawColor(ren, background.r, background.g, background.b, background.a);
+    SDL_RenderClear(ren);
+}
+
 S_Window::~S_Window()
 {
     SDL_DestroyRenderer(ren);
