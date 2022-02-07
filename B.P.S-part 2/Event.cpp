@@ -50,6 +50,11 @@ void Event::setTextEditCallback(std::function<void(SDL_TextEditingEvent* e)> cal
 	textEditCB = callback;
 }
 
+void Event::setUIEvent(std::function<void(SDL_Event* e)> eventFuck)
+{
+	userInterfaceEvent = eventFuck;
+}
+
 bool Event::isExit()
 {
 	return exit;
@@ -59,6 +64,7 @@ void Event::Update()
 {
 	while (SDL_PollEvent(e))
 	{
+		if (userInterfaceEvent) userInterfaceEvent(e);
 		if (e->type == SDL_QUIT) exit = true;
 
 		if (e->type == SDL_KEYDOWN && keyboardDownCB) keyboardDownCB(&e->key);

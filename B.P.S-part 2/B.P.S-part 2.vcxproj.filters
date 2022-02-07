@@ -13,6 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Static Components">
+      <UniqueIdentifier>{3a4a45d2-4436-483e-ad87-58f527c2644d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static Components\System">
+      <UniqueIdentifier>{f12a447c-9533-454e-befb-5fc1aeb41098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static Components\Math">
+      <UniqueIdentifier>{b1da9579-b429-4445-8049-668b74bb9452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static Components\Logic">
+      <UniqueIdentifier>{6bff65fc-e85c-4e6a-9d74-1259b161ec54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static Components\System\Language">
+      <UniqueIdentifier>{5135ef97-53ed-4637-9480-6a84951e6926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static Components\System\Data type">
+      <UniqueIdentifier>{b86b3d09-041f-409d-8385-3d286d21b66c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInteface">
+      <UniqueIdentifier>{c1678d6a-9a7e-4cb4-a7a0-9c2f8b2330ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -27,7 +48,43 @@
     <ClCompile Include="WorkSpace.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Static Components\System\Language\ComponentIf.cpp">
+      <Filter>Static Components\System\Language</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaRunner.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Port.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="VariantStack.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="BasicComponent.cpp">
+      <Filter>Static Components</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>UserInteface</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>UserInteface</Filter>
+    </ClCompile>
+    <ClCompile Include="UIText.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FontLoad.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPrint.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="UIList.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="UIListElement.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +98,43 @@
     <ClInclude Include="WorkSpace.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Static Components\System\Language\ComponentIf.h">
+      <Filter>Static Components\System\Language</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaRunner.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Port.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="VariantStack.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
     <ClInclude Include="BasicComponent.h">
+      <Filter>Static Components</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>UserInteface</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>UserInteface</Filter>
+    </ClInclude>
+    <ClInclude Include="UIText.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FontLoad.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TextPrint.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UIList.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UIListElement.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

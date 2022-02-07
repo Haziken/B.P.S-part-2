@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\mayer\source\repos\B.P.S-part 2\B.P.S-part 2\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\mayer\source\repos\B.P.S-part 2\B.P.S-part 2\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,14 +143,38 @@
   <ItemGroup>
     <ClCompile Include="BasicComponent.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="FontLoad.cpp" />
+    <ClCompile Include="LuaRunner.cpp" />
+    <ClCompile Include="Port.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Static Components\System\Language\ComponentIf.cpp" />
     <ClCompile Include="S_Window.cpp" />
+    <ClCompile Include="TextPrint.cpp" />
+    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="UIList.cpp" />
+    <ClCompile Include="UIListElement.cpp" />
+    <ClCompile Include="UIText.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="VariantStack.cpp" />
     <ClCompile Include="WorkSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicComponent.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="FontLoad.h" />
+    <ClInclude Include="LuaRunner.h" />
+    <ClInclude Include="Port.h" />
+    <ClInclude Include="Static Components\System\Language\ComponentIf.h" />
     <ClInclude Include="S_Window.h" />
+    <ClInclude Include="TextPrint.h" />
+    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="UIList.h" />
+    <ClInclude Include="UIListElement.h" />
+    <ClInclude Include="UIText.h" />
+    <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="VariantStack.h" />
     <ClInclude Include="WorkSpace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -22,7 +22,7 @@ SDL_Rect BasicComponent::getSize()
     {
         pos.x,
         pos.y,
-        std::ceil(title.size() / (float)SCALE) + 2,
+        std::ceil(title.size() * SCALE) + 2,
         std::max(inp, out) + 3
     };
     return size;
@@ -43,7 +43,26 @@ std::string BasicComponent::getLuaCode()
     return code;
 }
 
-void BasicComponent::draw()
+//Port* BasicComponent::getInputPortsAt(Uint16 id)
+//{
+//    return inputPorts.at(id);
+//}
+//
+//Port* BasicComponent::getOutputPortsAt(Uint16 id)
+//{
+//    return outputPorts.at(id);
+//}
+
+void BasicComponent::drawBody()
+{
+    //SDL_SetRenderDrawColor(RENDER, )
+}
+
+void BasicComponent::drawPorts()
+{
+}
+
+void BasicComponent::drawText()
 {
 }
 

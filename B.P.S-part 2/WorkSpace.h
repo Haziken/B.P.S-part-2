@@ -2,6 +2,7 @@
 #include <vector>
 #include "S_Window.h"
 #include "BasicComponent.h"
+#include <cmath>
 
 #define SCALE WorkSpace::getScale()
 
@@ -17,6 +18,8 @@ public:
 	std::vector<BasicComponent*>* getAllComponent();
 	BasicComponent* getComponentFromPosition(SDL_Point position);
 
+	void setSpaceSize(SDL_Rect newSize);
+
 	static int getScale();
 	static void setScale(int newScale);
 	static SDL_Point getSpaceShift();
@@ -24,7 +27,6 @@ public:
 
 	void draw();
 	void update();
-
 private:
 	std::vector<BasicComponent*> allComponents;
 	SDL_Rect size; 

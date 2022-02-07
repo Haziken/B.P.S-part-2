@@ -1,7 +1,9 @@
 #pragma once
 #include <SDL2/SDL_rect.h>
 #include <string>
+#include <vector>
 #include <cmath>
+#include "Port.h"
 
 enum class Type
 {
@@ -23,14 +25,19 @@ public:
 	Uint16 getInputPorts();
 	Uint16 getOutputPorts();
 	std::string getLuaCode();
+	//Port* getInputPortsAt(Uint16 id);
+	//Port* getOutputPortsAt(Uint16 id);
 
-	void draw();
-	void update();
+	virtual void drawBody();
+	virtual void drawPorts();
+	virtual void drawText();
+	virtual void update();
 
 private:
 	Type type;
 	SDL_Point pos;
 	Uint16 inp, out;
 	std::string code, title;
+	//std::vector<Port*> inputPorts, outputPorts;
 };
 

@@ -47,6 +47,11 @@ BasicComponent* WorkSpace::getComponentFromPosition(SDL_Point position)
 	return nullptr;
 }
 
+void WorkSpace::setSpaceSize(SDL_Rect newSize)
+{
+	size = newSize;
+}
+
 int WorkSpace::getScale()
 {
 	return scale;
@@ -54,8 +59,7 @@ int WorkSpace::getScale()
 
 void WorkSpace::setScale(int newScale)
 {
-	if (newScale < 10) throw;
-	scale = newScale;
+	scale = std::min(std::max(newScale, 10), 40);
 }
 
 SDL_Point WorkSpace::getSpaceShift()
@@ -70,7 +74,7 @@ void WorkSpace::setSpaceShift(SDL_Point newSpaceShift)
 
 void WorkSpace::draw()
 {
-	SDL_SetRenderDrawColor(RENDER, 50,50,50,50);
+	SDL_SetRenderDrawColor(RENDER, 0x46, 0x46, 0x46, 255); //#464646
 	for (Uint16 x = size.x; x < size.x + size.w; x += scale)
 	{
 		for (Uint16 y = size.y; y < size.y + size.h; y += scale)
@@ -79,7 +83,7 @@ void WorkSpace::draw()
 			SDL_RenderDrawLine(RENDER, size.x, y, size.x + size.w, y);
 		}
 	}
-	for (auto i : allComponents) i->draw();
+	//for (auto i : allComponents) i->draw();
 }
 
 void WorkSpace::update()

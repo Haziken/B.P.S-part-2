@@ -19,6 +19,8 @@ public:
 	void setTextInputCallback(std::function<void(SDL_TextInputEvent* e)> callback);
 	void setTextEditCallback(std::function<void(SDL_TextEditingEvent* e)> callback);
 
+	void setUIEvent(std::function<void(SDL_Event* e)> eventFuck);
+
 	bool isExit();
 
 	void Update();
@@ -39,5 +41,7 @@ private:
 
 	std::function<void(SDL_TextInputEvent* e)> textInputCB;
 	std::function<void(SDL_TextEditingEvent* e)> textEditCB;
+
+	std::function<void(SDL_Event* e)> userInterfaceEvent;
 };
 
