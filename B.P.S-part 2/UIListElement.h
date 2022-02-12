@@ -4,7 +4,10 @@ class UIListElement :
     public UIElement
 {
 public:
-    UIListElement(UIElement* parent, SDL_Rect size, std::string title, std::function<void(UIElement* e)> callFuck = nullptr);
+    UIListElement(UIElement* parent, Rect size, std::string title, std::function<void(UIElement* e)> callFuck = nullptr);
+
+    void setSelect(bool sel);
 private:
+    bool select;
 };
 

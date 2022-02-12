@@ -34,15 +34,15 @@
     <Filter Include="UserInteface">
       <UniqueIdentifier>{c1678d6a-9a7e-4cb4-a7a0-9c2f8b2330ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UserInteface\header">
+      <UniqueIdentifier>{5f9b7531-323b-48e1-9b36-7d47fd53f2cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInteface\cpp">
+      <UniqueIdentifier>{2a9a6837-2b87-40fd-8587-fb733567318a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="S_Window.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Event.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="WorkSpace.cpp">
@@ -63,15 +63,6 @@
     <ClCompile Include="BasicComponent.cpp">
       <Filter>Static Components</Filter>
     </ClCompile>
-    <ClCompile Include="UIElement.cpp">
-      <Filter>UserInteface</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
-      <Filter>UserInteface</Filter>
-    </ClCompile>
-    <ClCompile Include="UIText.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="FontLoad.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -79,12 +70,27 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="UIButton.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>UserInteface\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>UserInteface\cpp</Filter>
     </ClCompile>
     <ClCompile Include="UIList.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>UserInteface\cpp</Filter>
     </ClCompile>
     <ClCompile Include="UIListElement.cpp">
+      <Filter>UserInteface\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="UIText.cpp">
+      <Filter>UserInteface\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>UserInteface\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="S_Window.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,29 +119,32 @@
     <ClInclude Include="BasicComponent.h">
       <Filter>Static Components</Filter>
     </ClInclude>
-    <ClInclude Include="UserInterface.h">
-      <Filter>UserInteface</Filter>
-    </ClInclude>
-    <ClInclude Include="UIElement.h">
-      <Filter>UserInteface</Filter>
-    </ClInclude>
-    <ClInclude Include="UIText.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="FontLoad.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="TextPrint.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="UIButton.h">
+    <ClInclude Include="Utils.hpp">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>UserInteface\header</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>UserInteface\header</Filter>
     </ClInclude>
     <ClInclude Include="UIList.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>UserInteface\header</Filter>
     </ClInclude>
     <ClInclude Include="UIListElement.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>UserInteface\header</Filter>
+    </ClInclude>
+    <ClInclude Include="UIText.h">
+      <Filter>UserInteface\header</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>UserInteface\header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

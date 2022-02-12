@@ -1,9 +1,9 @@
 #include "WorkSpace.h"
 
 int WorkSpace::scale = 10;
-SDL_Point WorkSpace::spaceShift = { 0,0 };
+Point WorkSpace::spaceShift = { 0,0 };
 
-WorkSpace::WorkSpace(SDL_Rect size) : size(size)
+WorkSpace::WorkSpace(Rect size) : size(size)
 {
 }
 
@@ -33,11 +33,11 @@ std::vector<BasicComponent*>* WorkSpace::getAllComponent()
 	return &allComponents;
 }
 
-BasicComponent* WorkSpace::getComponentFromPosition(SDL_Point position)
+BasicComponent* WorkSpace::getComponentFromPosition(Point position)
 {
 	for (auto cmp : allComponents)
 	{
-		SDL_Rect cmp_pos = cmp->getSize();
+		Rect cmp_pos = cmp->getSize();
 		cmp_pos.x = (cmp_pos.x - spaceShift.x) * scale;
 		cmp_pos.y = (cmp_pos.y - spaceShift.y) * scale;
 		cmp_pos.w *= scale;
@@ -47,7 +47,7 @@ BasicComponent* WorkSpace::getComponentFromPosition(SDL_Point position)
 	return nullptr;
 }
 
-void WorkSpace::setSpaceSize(SDL_Rect newSize)
+void WorkSpace::setSpaceSize(Rect newSize)
 {
 	size = newSize;
 }
@@ -62,12 +62,12 @@ void WorkSpace::setScale(int newScale)
 	scale = std::min(std::max(newScale, 10), 40);
 }
 
-SDL_Point WorkSpace::getSpaceShift()
+Point WorkSpace::getSpaceShift()
 {
 	return spaceShift;
 }
 
-void WorkSpace::setSpaceShift(SDL_Point newSpaceShift)
+void WorkSpace::setSpaceShift(Point newSpaceShift)
 {
 	spaceShift = newSpaceShift;
 }

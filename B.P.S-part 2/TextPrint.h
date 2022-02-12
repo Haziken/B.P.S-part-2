@@ -24,17 +24,17 @@ public:
 
 	void print(std::string text);
 
-	TextPrint* setForeground(SDL_Color fg);
-	TextPrint* setBackground(SDL_Color bg);
-	TextPrint* setPosition(SDL_Point pos);
-	TextPrint* setRenderRect(SDL_Rect size);
+	TextPrint* setForeground(Color fg);
+	TextPrint* setBackground(Color bg);
+	TextPrint* setPosition(Point pos);
+	TextPrint* setRenderRect(Rect size);
 	TextPrint* setTextFormat(TEXTFORMAT format);
 	TextPrint* setFont(TTF_Font* font);
 	TextPrint* setBorder(BORDER border);
 
 private:
-	SDL_Rect viewRect;
-	SDL_Color fg, bg;
+	Rect viewRect;
+	Color fg, bg;
 	TEXTFORMAT format;
 	TTF_Font* font;
 	TextPrint();

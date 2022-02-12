@@ -9,28 +9,28 @@
 class WorkSpace
 {
 public:
-	WorkSpace(SDL_Rect size);
+	WorkSpace(Rect size);
 	~WorkSpace();
 
 	void addComponent(BasicComponent* component);
 	void delComponent(BasicComponent* component);
 	
 	std::vector<BasicComponent*>* getAllComponent();
-	BasicComponent* getComponentFromPosition(SDL_Point position);
+	BasicComponent* getComponentFromPosition(Point position);
 
-	void setSpaceSize(SDL_Rect newSize);
+	void setSpaceSize(Rect newSize);
 
 	static int getScale();
 	static void setScale(int newScale);
-	static SDL_Point getSpaceShift();
-	static void setSpaceShift(SDL_Point newSpaceShift);
+	static Point getSpaceShift();
+	static void setSpaceShift(Point newSpaceShift);
 
 	void draw();
 	void update();
 private:
 	std::vector<BasicComponent*> allComponents;
-	SDL_Rect size; 
-	static SDL_Point spaceShift;
+	Rect size; 
+	static Point spaceShift;
 	static int scale;
 };
 

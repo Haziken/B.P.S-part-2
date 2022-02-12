@@ -9,8 +9,8 @@ TextPrint* TextPrint::instance()
 void TextPrint::print(std::string text)
 {
     SDL_Surface* sur = TTF_RenderText_Blended(font, text.c_str(), fg);
-    SDL_Rect c = { 0,0, std::min(sur->w, viewRect.w), std::min(sur->h, viewRect.h) };
-    SDL_Rect r = { viewRect.x, viewRect.y, c.w, c.h };
+    Rect c = { 0,0, std::min(sur->w, viewRect.w), std::min(sur->h, viewRect.h) };
+    Rect r = { viewRect.x, viewRect.y, c.w, c.h };
     switch (format)
     {
     case TEXTFORMAT::CENTER:
@@ -26,26 +26,26 @@ void TextPrint::print(std::string text)
     SDL_FreeSurface(sur);
 }
 
-TextPrint* TextPrint::setForeground(SDL_Color fg)
+TextPrint* TextPrint::setForeground(Color fg)
 {
     this->fg = fg;
     return this;
 }
 
-TextPrint* TextPrint::setBackground(SDL_Color bg)
+TextPrint* TextPrint::setBackground(Color bg)
 {
     this->bg = bg;
     return this;
 }
 
-TextPrint* TextPrint::setPosition(SDL_Point pos)
+TextPrint* TextPrint::setPosition(Point pos)
 {
     viewRect.x = pos.x;
     viewRect.y = pos.y;
     return this;
 }
 
-TextPrint* TextPrint::setRenderRect(SDL_Rect size)
+TextPrint* TextPrint::setRenderRect(Rect size)
 {
     viewRect = size;
     return this;

@@ -1,7 +1,7 @@
 #include "BasicComponent.h"
 #include "WorkSpace.h"
 
-BasicComponent::BasicComponent(SDL_Point position, std::string title, Type type, Uint16 inputPorts, Uint16 outputPorts, std::string luaCode) :
+BasicComponent::BasicComponent(Point position, std::string title, Type type, Uint16 inputPorts, Uint16 outputPorts, std::string luaCode) :
     pos(position), type(type), inp(inputPorts), out(outputPorts), code(luaCode)
 {
 }
@@ -11,14 +11,14 @@ Type BasicComponent::getType()
     return type;
 }
 
-SDL_Point BasicComponent::getPosition()
+Point BasicComponent::getPosition()
 {
     return pos;
 }
 
-SDL_Rect BasicComponent::getSize()
+Rect BasicComponent::getSize()
 {
-    SDL_Rect size =
+    Rect size =
     {
         pos.x,
         pos.y,

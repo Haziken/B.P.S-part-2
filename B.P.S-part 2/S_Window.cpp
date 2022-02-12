@@ -25,7 +25,14 @@ SDL_Renderer* S_Window::getRenderer()
     return ren;
 }
 
-void S_Window::update(SDL_Color background)
+Point S_Window::getWindowSize()
+{
+    Point size;
+    SDL_GetWindowSize(win, &size.x, &size.y);
+    return size;
+}
+
+void S_Window::update(Color background)
 {
     SDL_RenderPresent(ren);
     SDL_SetRenderDrawColor(ren, background.r, background.g, background.b, background.a);

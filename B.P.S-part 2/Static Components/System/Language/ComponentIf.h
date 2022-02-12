@@ -4,7 +4,7 @@ class ComponentIf :
     public BasicComponent
 {
 public:
-    ComponentIf(SDL_Point pos);
+    ComponentIf(Point pos);
 
     void drawBody() override;
     void drawPorts() override;

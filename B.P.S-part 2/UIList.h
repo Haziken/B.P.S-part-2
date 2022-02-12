@@ -1,11 +1,14 @@
 #pragma once
 #include "UIElement.h"
 #include "UIListElement.h"
+#include "UIText.h"
 class UIList :
     public UIElement
 {
 public:
-    UIList(UIElement* parent, SDL_Rect size, std::string title, std::function<void(UIElement* e)> callFuck = nullptr);
+    UIList(UIElement* parent, Rect size, std::string title, std::function<void(UIElement* e)> callFuck = nullptr);
+
+    UIElement* getSelected();
 
     void add(UIListElement* el);
     void del(UIListElement* el);
@@ -13,6 +16,7 @@ public:
     void addText(std::string title);
 
 private:
+    UIElement* content_view;
     UIListElement* selected;
     std::vector<UIListElement*> content;
 };

@@ -1,17 +1,17 @@
 #include "UserInterface.h"
 
-UserInterface::UserInterface(SDL_Rect size) : mainParent(new UIElement(nullptr, size, "mainUI"))
+UserInterface::UserInterface(Rect size) : mainParent(new UIElement(nullptr, size, "mainUI"))
 {
 }
 
-void UserInterface::setSize(SDL_Rect newSize)
+void UserInterface::setSize(Rect newSize)
 {
-	mainParent->setSize(newSize);
+	mainParent->setViewRect(newSize);
 }
 
-SDL_Rect UserInterface::getSize()
+Rect UserInterface::getSize()
 {
-	return mainParent->getSize();
+	return mainParent->getView();
 }
 
 UIElement* UserInterface::getParent()

@@ -21,6 +21,7 @@ public:
 
 	void setUIEvent(std::function<void(SDL_Event* e)> eventFuck);
 
+	void Quit();
 	bool isExit();
 
 	void Update();

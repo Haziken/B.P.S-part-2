@@ -55,6 +55,11 @@ void Event::setUIEvent(std::function<void(SDL_Event* e)> eventFuck)
 	userInterfaceEvent = eventFuck;
 }
 
+void Event::Quit()
+{
+	exit = true;
+}
+
 bool Event::isExit()
 {
 	return exit;

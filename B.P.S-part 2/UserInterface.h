@@ -5,10 +5,10 @@
 class UserInterface
 {
 public:
-	UserInterface(SDL_Rect size);
+	UserInterface(Rect size);
 
-	void setSize(SDL_Rect newSize);
-	SDL_Rect getSize();
+	void setSize(Rect newSize);
+	Rect getSize();
 
 	UIElement* getParent();
 

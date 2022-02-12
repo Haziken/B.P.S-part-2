@@ -1,9 +1,9 @@
 #pragma once
-#include <SDL2/SDL_rect.h>
 #include <string>
 #include <vector>
 #include <cmath>
 #include "Port.h"
+#include "S_Window.h"
 
 enum class Type
 {
@@ -17,11 +17,11 @@ enum class Type
 class BasicComponent
 {
 public:
-	BasicComponent(SDL_Point position, std::string title ,Type type = Type::NTYPE, Uint16 inputPorts = 0, Uint16 outputPorts = 0, std::string luaCode = "");
+	BasicComponent(Point position, std::string title ,Type type = Type::NTYPE, Uint16 inputPorts = 0, Uint16 outputPorts = 0, std::string luaCode = "");
 
 	Type getType();
-	SDL_Point getPosition();
-	SDL_Rect getSize();
+	Point getPosition();
+	Rect getSize();
 	Uint16 getInputPorts();
 	Uint16 getOutputPorts();
 	std::string getLuaCode();
@@ -35,7 +35,7 @@ public:
 
 private:
 	Type type;
-	SDL_Point pos;
+	Point pos;
 	Uint16 inp, out;
 	std::string code, title;
 	//std::vector<Port*> inputPorts, outputPorts;
