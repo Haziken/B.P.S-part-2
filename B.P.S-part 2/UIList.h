@@ -10,6 +10,9 @@ public:
 
     UIElement* getSelected();
 
+    void setSelectColor(Color sc);
+    Color getSelectColor();
+
     void add(UIListElement* el);
     void del(UIListElement* el);
 
@@ -19,5 +22,6 @@ private:
     UIElement* content_view;
     UIListElement* selected;
     std::vector<UIListElement*> content;
+    Color selectColor;
 };
 

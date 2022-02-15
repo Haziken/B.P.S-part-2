@@ -8,11 +8,23 @@ UIList::UIList(UIElement* parent, Rect size, std::string title, std::function<vo
 	content_view = new UIElement(this, {0,0,-1,-1}, "CONTENT");
 	content_view->setLayout(LAYOUT::Vertical);
 	content_view->setScrolled(true);
+	selectColor = { 0,0,0,100 };
 }
 
 UIElement* UIList::getSelected()
 {
 	return selected;
+}
+
+void UIList::setSelectColor(Color sc)
+{
+	selectColor = sc;
+	for (auto it : content) it->setSelectColor(selectColor);
+}
+
+Color UIList::getSelectColor()
+{
+	return selectColor;
 }
 
 void UIList::add(UIListElement* el)
@@ -28,8 +40,13 @@ void UIList::add(UIListElement* el)
 				if (c == el)
 				{
 					selected = c;
+					c->setSelect(true);
 					if (this->getCallback())
 						this->getCallback()(this);
+				}
+				else
+				{
+					c->setSelect(false);
 				}
 			}
 		});
@@ -51,6 +68,9 @@ void UIList::del(UIListElement* el)
 void UIList::addText(std::string title)
 {
 	UIListElement* newEl = new UIListElement(nullptr, { 0,0,-1,20 }, title);
+	newEl->setSelectColor(selectColor);
+	newEl->setBorder({ 1,1,1,1 });
 	UIText* text = new UIText(newEl, { 0,0,-1,-1 }, title, 20);
+	text->setBackground({0,0,0,0});
 	add(newEl);
 }

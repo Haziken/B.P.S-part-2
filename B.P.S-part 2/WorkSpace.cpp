@@ -83,7 +83,8 @@ void WorkSpace::draw()
 			SDL_RenderDrawLine(RENDER, size.x, y, size.x + size.w, y);
 		}
 	}
-	//for (auto i : allComponents) i->draw();
+	for (auto i : allComponents) 
+		i->draw();
 }
 
 void WorkSpace::update()

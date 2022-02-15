@@ -17,6 +17,7 @@ UIElement::UIElement(UIElement* parent, Rect size, std::string title, std::funct
 	bg = { 0x5D, 0x5D, 0x5D, 255 };
 	fg = { 0,0,0,0 };
 	cBorder = { 0,0,0,100 };
+	cFocus = Utils::mColor::SetAlpha(Utils::mColor::white, 50);
 	clipRect = { 0,0,size.w, size.h };
 	if (parent) parent->addChild(this);
 }
@@ -229,6 +230,7 @@ void UIElement::UpdateLayout()
 
 		Rect child_margin = child->getMargin();
 		Rect child_size = child->getSize();
+		Rect child_border = child->getBorder();
 		switch (layout)
 		{
 		case LAYOUT::Horizontal:
@@ -236,24 +238,33 @@ void UIElement::UpdateLayout()
 		case LAYOUT::Vertical:
 		{
 			y += padding.y;
-			Rect childView = { viewRect.x + child_size.x + child_margin.x, viewRect.y + child_size.y + child_margin.y + y, child_size.w,child_size.h };
+			Rect childView = 
+			{ 
+				viewRect.x + child_size.x + child_margin.x,
+				viewRect.y + child_size.y + child_margin.y + y,
+				child_size.w + child_border.w,
+				child_size.h + child_border.h
+			};
 
 			if(child_size.w == -1)
 				childView.w = viewRect.w - child_margin.x - child_margin.w;
 			if(child_size.h == -1)
 				childView.h = viewRect.h - child_margin.y - child_margin.h;
 
-			y += childView.h + child_margin.h + child_margin.y;
+			y += childView.h + child_margin.h + child_margin.y; // padding - border
 
 			child->setViewRect(childView);
 			break;
 		}
 		case LAYOUT::Absolute:
 		{
-			Rect childView = { viewRect.x + child_size.x + child_margin.x, viewRect.y + child_size.y + child_margin.y, 0,0 };
-
-			childView.w = std::min(viewRect.w - padding.w - child_margin.w - padding.x - child_margin.x, child_size.w);
-			childView.h = std::min(viewRect.h - padding.h - child_margin.h - padding.y - child_margin.y, child_size.h);
+			Rect childView = 
+			{
+				viewRect.x + child_size.x + child_margin.x,
+				viewRect.y + child_size.y + child_margin.y,
+				std::min(viewRect.w - padding.w - child_margin.w - padding.x - child_margin.x, child_size.w),
+				std::min(viewRect.h - padding.h - child_margin.h - padding.y - child_margin.y, child_size.h)
+			};
 
 			if (child_size.w == -1)
 				childView.w = viewRect.w - child_margin.w - child_margin.x;
@@ -302,8 +313,9 @@ void UIElement::Draw()
 void UIElement::drawAlpha()
 {
 	if (!isVisible()) return;
+	SDL_RenderSetViewport(RENDER, &viewRect);
 
-	if (parent)
+	/*if (parent)
 	{
 		Rect pclip = parent->getClip();
 		pclip.x -= viewRect.x;
@@ -320,13 +332,12 @@ void UIElement::drawAlpha()
 	{
 		clipRect = { 0,0,viewRect.w, viewRect.h };
 	}
+	SDL_RenderSetClipRect(RENDER, &clipRect);*/
 
-	SDL_RenderSetViewport(RENDER, &viewRect);
-	//SDL_RenderSetClipRect(RENDER, &clipRect);
-
-	SDL_SetRenderDrawColor(RENDER, bg.r, bg.g, bg.b, bg.a);
-	Rect r = {0,0,viewRect.w, viewRect.h};
+	SDL_SetRenderDrawColor(RENDER, SDLCOLOR(bg));
+	Rect r = { 0,0,viewRect.w, viewRect.h };
 	SDL_RenderFillRect(RENDER, &r);
+	
 }
 
 void UIElement::drawBeta()
@@ -336,8 +347,11 @@ void UIElement::drawBeta()
 
 void UIElement::drawGamma()
 {
-	/*SDL_RenderSetViewport(RENDER, &viewRect);
-	SDL_RenderSetClipRect(RENDER, &clipRect);
-	SDL_SetRenderDrawColor(RENDER, bg.r, bg.g, bg.b, bg.a);
-	SDL_RenderFillRect(RENDER, &viewRect);*/
+	if (!isVisible()) return;
+	SDL_RenderSetViewport(RENDER, &viewRect);
+	SDL_SetRenderDrawColor(RENDER, SDLCOLOR(cBorder));
+	Utils::DrawLine(RENDER, 0, 0, viewRect.w, 0, border.x); // top
+	Utils::DrawLine(RENDER, 0, 0, 0, viewRect.h, border.y); // left
+	Utils::DrawLine(RENDER, 0, viewRect.h - border.h, viewRect.w, viewRect.h - border.h, border.h); // bottom
+	Utils::DrawLine(RENDER, viewRect.w - border.w, 0, viewRect.w - border.w, viewRect.h, border.w); // right
 }

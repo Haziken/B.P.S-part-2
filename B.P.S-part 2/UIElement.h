@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include "S_Window.h"
 #include <cmath>
+#include "Utils.hpp"
 
 enum class LAYOUT
 {
@@ -113,5 +114,5 @@ private:
 	std::vector<UIElement*> childs;
 	std::string title;
 	std::function<void(UIElement* e)> callback;
-	Color bg, fg, cBorder;
+	Color bg, fg, cBorder, cFocus;
 };

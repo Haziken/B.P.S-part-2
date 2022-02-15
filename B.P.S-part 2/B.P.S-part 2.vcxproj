@@ -141,13 +141,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BasicComponent.cpp" />
+    <ClCompile Include="BaseElement.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="FontLoad.cpp" />
     <ClCompile Include="LuaRunner.cpp" />
-    <ClCompile Include="Port.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Static Components\System\Language\ComponentIf.cpp" />
     <ClCompile Include="S_Window.cpp" />
     <ClCompile Include="TextPrint.cpp" />
     <ClCompile Include="UIButton.cpp" />
@@ -156,16 +154,13 @@
     <ClCompile Include="UIListElement.cpp" />
     <ClCompile Include="UIText.cpp" />
     <ClCompile Include="UserInterface.cpp" />
-    <ClCompile Include="VariantStack.cpp" />
     <ClCompile Include="WorkSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BasicComponent.h" />
+    <ClInclude Include="BaseElement.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="FontLoad.h" />
     <ClInclude Include="LuaRunner.h" />
-    <ClInclude Include="Port.h" />
-    <ClInclude Include="Static Components\System\Language\ComponentIf.h" />
     <ClInclude Include="S_Window.h" />
     <ClInclude Include="TextPrint.h" />
     <ClInclude Include="UIButton.h" />
@@ -175,7 +170,6 @@
     <ClInclude Include="UIText.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="Utils.hpp" />
-    <ClInclude Include="VariantStack.h" />
     <ClInclude Include="WorkSpace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

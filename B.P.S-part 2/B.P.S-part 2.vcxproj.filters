@@ -48,20 +48,8 @@
     <ClCompile Include="WorkSpace.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Static Components\System\Language\ComponentIf.cpp">
-      <Filter>Static Components\System\Language</Filter>
-    </ClCompile>
     <ClCompile Include="LuaRunner.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Port.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="VariantStack.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicComponent.cpp">
-      <Filter>Static Components</Filter>
     </ClCompile>
     <ClCompile Include="FontLoad.cpp">
       <Filter>Исходные файлы</Filter>
@@ -93,6 +81,9 @@
     <ClCompile Include="S_Window.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="BaseElement.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="S_Window.h">
@@ -104,20 +95,8 @@
     <ClInclude Include="WorkSpace.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Static Components\System\Language\ComponentIf.h">
-      <Filter>Static Components\System\Language</Filter>
-    </ClInclude>
     <ClInclude Include="LuaRunner.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Port.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="VariantStack.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicComponent.h">
-      <Filter>Static Components</Filter>
     </ClInclude>
     <ClInclude Include="FontLoad.h">
       <Filter>Файлы заголовков</Filter>
@@ -145,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="UserInterface.h">
       <Filter>UserInteface\header</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseElement.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,18 +4,16 @@
 #include "LuaRunner.h"
 #include "UserInterface.h"
 #include "UIList.h"
-#include <iostream>
-#include "Utils.hpp"
 
 int main(int argc, char** argv)
 {
 	WINDOW->init("TEST", 100, 100, 1280, 720, SDL_WINDOW_SHOWN, SDL_RENDERER_ACCELERATED);
 	Event* ev = new Event();
 	Point winsize = WINDOW->getWindowSize();
-	WorkSpace* sp = new WorkSpace({0,0,winsize.x,winsize.y });
+	WorkSpace* sp = new WorkSpace({200,0,winsize.x - 200,winsize.y });
 
 	UserInterface* ui = new UserInterface({ 0,0,winsize.x,winsize.y });
-
+	std::string selectElement;
 	Point mousePosition;
 
 	ev->setUIEvent([&](SDL_Event* e)
@@ -34,14 +32,22 @@ int main(int argc, char** argv)
 
 	ev->setMouseWheelCallback([&](SDL_MouseWheelEvent* e)
 		{
-			if (e->y > 0) sp->setScale(sp->getScale() * 1.5);
-			if (e->y < 0) sp->setScale(sp->getScale() / 1.5);
+			/*if (e->y > 0) sp->setScale(sp->getScale() * 1.5);
+			if (e->y < 0) sp->setScale(sp->getScale() / 1.5);*/
 		});
 
 	ev->setMouseMotionCallback([&](SDL_MouseMotionEvent* e)
 		{
 			mousePosition = { e->x, e->y };
 			//std::cout << mousePosition.x << " " << mousePosition.y << std::endl;
+		});
+
+	ev->setMouseButtonUpCallback([&](SDL_MouseButtonEvent* e) 
+		{
+			if (e->button == SDL_BUTTON_LEFT)
+			{
+				std::cout << mousePosition << std::endl;
+			}
 		});
 
 	ev->setKeyboardUpCallback([&](SDL_KeyboardEvent* e)
@@ -54,9 +60,14 @@ int main(int argc, char** argv)
 	el->setLayout(LAYOUT::Vertical);
 
 	UIText* programInfo = new UIText(el, { 0,0,-1,20 }, "Block Programmig v0.1", 20, TEXTFORMAT::LEFT);
-	programInfo->setForeground(COLOR::HexToColor("#e3e3e3"));
+	programInfo->setForeground(Utils::mColor::gray9);
+	programInfo->setBorder({ 0,0,0,5 });
+	programInfo->setPadding({ 0,0,0,2 });
+	programInfo->setBorderColor(Utils::mColor::black);
 
-	UIList* components = new UIList(el, { 0,5,-1,winsize.y - 20 - 50 }, "Components");
+	UIList* components = new UIList(el, { 0,0,-1,winsize.y - 20 - 50 }, "Components", 
+		[&](UIElement* e) { selectElement = ((UIList*)e)->getSelected()->getTitle(); });
+	components->setBorder({ 2,2,2,2 });
 	components->addText("cin");
 	components->addText("cout");
 	components->addText("if");
@@ -71,14 +82,12 @@ int main(int argc, char** argv)
 
 	while (!ev->isExit())
 	{
-		SDL_SetRenderDrawColor(RENDER, SDLCOLOR(COLOR::HexToColor("#171717")));
+		SDL_SetRenderDrawColor(RENDER, SDLCOLOR(Utils::mColor::gray1));
 		SDL_RenderClear(RENDER);
 		ev->Update();
 		sp->draw();
 		ui->Draw();
 		SDL_RenderSetViewport(RENDER, &r);
-		SDL_SetRenderDrawColor(RENDER, 0, 0, 0, 255);
-		DrawLine(RENDER, 0, 20, 200, 20, 5);
 		SDL_RenderPresent(RENDER);
 	}
 	return 0;
