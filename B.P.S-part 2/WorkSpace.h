@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "S_Window.h"
-#include "BasicComponent.h"
+#include "BaseElement.h"
 #include <cmath>
 
 #define SCALE WorkSpace::getScale()
@@ -12,11 +12,11 @@ public:
 	WorkSpace(Rect size);
 	~WorkSpace();
 
-	void addComponent(BasicComponent* component);
-	void delComponent(BasicComponent* component);
+	void addComponent(BaseElement* component);
+	void delComponent(BaseElement* component);
 	
-	std::vector<BasicComponent*>* getAllComponent();
-	BasicComponent* getComponentFromPosition(Point position);
+	std::vector<BaseElement*>* getAllComponent();
+	BaseElement* getComponentFromPosition(Point position);
 
 	void setSpaceSize(Rect newSize);
 
@@ -28,7 +28,7 @@ public:
 	void draw();
 	void update();
 private:
-	std::vector<BasicComponent*> allComponents;
+	std::vector<BaseElement*> allComponents;
 	Rect size; 
 	static Point spaceShift;
 	static int scale;

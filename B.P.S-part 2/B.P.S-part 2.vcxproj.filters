@@ -84,6 +84,9 @@
     <ClCompile Include="BaseElement.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Port.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="S_Window.h">
@@ -126,6 +129,9 @@
       <Filter>UserInteface\header</Filter>
     </ClInclude>
     <ClInclude Include="BaseElement.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Port.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

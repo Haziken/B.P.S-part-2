@@ -145,6 +145,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="FontLoad.cpp" />
     <ClCompile Include="LuaRunner.cpp" />
+    <ClCompile Include="Port.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="S_Window.cpp" />
     <ClCompile Include="TextPrint.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="FontLoad.h" />
     <ClInclude Include="LuaRunner.h" />
+    <ClInclude Include="Port.h" />
     <ClInclude Include="S_Window.h" />
     <ClInclude Include="TextPrint.h" />
     <ClInclude Include="UIButton.h" />

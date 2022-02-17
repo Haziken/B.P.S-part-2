@@ -47,6 +47,7 @@ int main(int argc, char** argv)
 			if (e->button == SDL_BUTTON_LEFT)
 			{
 				std::cout << mousePosition << std::endl;
+				//sp->addComponent(new BaseElement(mousePosition, "MAIN", SIGNALS::OUTPUT, {}, {new Port("Argv"), new Port("Argc")}));
 			}
 		});
 
@@ -74,11 +75,17 @@ int main(int argc, char** argv)
 	components->addText("while");
 	components->addText("for");
 
+	UIButton* but = new UIButton(el, { 0, 0, -1,20 }, "START", 20, [&](UIElement* e) {std::cout << "BUT" << std::endl; });
+	but->setBorder({ 2,2,2,2 });
+	but->setForeground(Utils::mColor::white);
+
 	ui->getParent()->setBackground({0,0,0,0});
 	ui->getParent()->UpdateLayout();
 
 	Rect r = { 0,0,winsize.x-1,winsize.y };
 	SDL_SetRenderDrawBlendMode(RENDER, SDL_BLENDMODE_BLEND);
+
+	sp->addComponent(new BaseElement({winsize.x / 2, winsize.y / 2}, "MAIN", SIGNALS::OUTPUT, {}, { new Port("Argv"), new Port("Argc") }));
 
 	while (!ev->isExit())
 	{

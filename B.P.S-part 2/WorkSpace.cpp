@@ -11,14 +11,14 @@ WorkSpace::~WorkSpace()
 {
 }
 
-void WorkSpace::addComponent(BasicComponent* component)
+void WorkSpace::addComponent(BaseElement* component)
 {
 	allComponents.push_back(component);
 }
 
-void WorkSpace::delComponent(BasicComponent* component)
+void WorkSpace::delComponent(BaseElement* component)
 {
-	for (std::vector<BasicComponent*>::iterator i = allComponents.begin(); i != allComponents.end(); ++i)
+	for (std::vector<BaseElement*>::iterator i = allComponents.begin(); i != allComponents.end(); ++i)
 	{
 		if (*i == component)
 		{
@@ -28,24 +28,24 @@ void WorkSpace::delComponent(BasicComponent* component)
 	}
 }
 
-std::vector<BasicComponent*>* WorkSpace::getAllComponent()
+std::vector<BaseElement*>* WorkSpace::getAllComponent()
 {
 	return &allComponents;
 }
 
-BasicComponent* WorkSpace::getComponentFromPosition(Point position)
-{
-	for (auto cmp : allComponents)
-	{
-		Rect cmp_pos = cmp->getSize();
-		cmp_pos.x = (cmp_pos.x - spaceShift.x) * scale;
-		cmp_pos.y = (cmp_pos.y - spaceShift.y) * scale;
-		cmp_pos.w *= scale;
-		cmp_pos.h *= scale;
-		if (SDL_PointInRect(&position, &cmp_pos)) return cmp;
-	}
-	return nullptr;
-}
+//BaseElement* WorkSpace::getComponentFromPosition(Point position)
+//{
+//	for (auto cmp : allComponents)
+//	{
+//		Rect cmp_pos = cmp->getSize();
+//		cmp_pos.x = (cmp_pos.x - spaceShift.x) * scale;
+//		cmp_pos.y = (cmp_pos.y - spaceShift.y) * scale;
+//		cmp_pos.w *= scale;
+//		cmp_pos.h *= scale;
+//		if (SDL_PointInRect(&position, &cmp_pos)) return cmp;
+//	}
+//	return nullptr;
+//}
 
 void WorkSpace::setSpaceSize(Rect newSize)
 {
@@ -84,10 +84,10 @@ void WorkSpace::draw()
 		}
 	}
 	for (auto i : allComponents) 
-		i->draw();
+		i->Draw();
 }
 
 void WorkSpace::update()
 {
-	for (auto i : allComponents) i->update();
+	/*for (auto i : allComponents) i->update();*/
 }

@@ -1,7 +1,4 @@
 #pragma once
-typedef SDL_Rect Rect;
-typedef SDL_Point Point;
-typedef SDL_Color Color;
 
 #include <SDL2/SDL.h>
 #include <string>
@@ -11,6 +8,10 @@ typedef SDL_Color Color;
 #include <iostream>
 
 #define SDLCOLOR(c) c.r, c.g, c.b, c.a
+
+typedef SDL_Rect Rect;
+typedef SDL_Point Point;
+typedef SDL_Color Color;
 
 namespace Utils
 {
